@@ -1,6 +1,6 @@
 # Daphnis and Chloe
 
-STATUS: Ongoing lemmatization, complete diglot
+STATUS: Ongoing lemmatization; diglot complete.
 
 This repo is a lemmatization project for _Daphnis and Chloe_ by Longus as well as an English-Greek diglot. 
 
