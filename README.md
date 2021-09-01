@@ -10,7 +10,7 @@ The lemmatization is being done with a custom toolset based on the form-lemma ma
 
 ## Sources and License
 
-The Greek text is taken from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/text?doc=urn:cts:greekLit:tlg0561.tlg001.perseus-grc1) and the English translation is taken from [Wikisource.org](https://en.m.wikisource.org/wiki/Daphnis_and_Chloe_(The_1896_Athenian_Society_Translation)). Both of these are released under a [CC-BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/). 
+The Greek text (found in `source_data/tlg0561.tlg001.perseus-grc2.xml`) is taken from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/text?doc=urn:cts:greekLit:tlg0561.tlg001.perseus-grc1) and the English translation (found in `source_data/en_daphnis_and_chloe_wiki.txt` and `source_data/en_daphnis_and_chloe_wiki_modified.txt`)is taken from [Wikisource.org](https://en.m.wikisource.org/wiki/Daphnis_and_Chloe_(The_1896_Athenian_Society_Translation)). Both of these are released under a [CC-BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/). 
 
 As such this repo work is also released under a CC-BY-SA 3.0 license.
 
