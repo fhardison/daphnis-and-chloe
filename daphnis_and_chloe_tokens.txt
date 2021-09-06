@@ -399,18 +399,18 @@
 399	Ἤδη	ἤδη	ἤδη
 400	δὲ	δὲ	δέ
 401	διετοῦς	διετοῦς	διετής
-402	χρόνου	χρόνου	χρόνος (, masc gen sg) OR χρονόω (, pres imperat act 2nd sg, imperf ind act 3rd sg (homeric ionic)) OR 
+402	χρόνου	χρόνου	χρόνος 
 403	διικνουμένου	διικνουμένου	διικνέομαι
 404	ποιμὴν	ποιμὴν	ποιμήν
 405	ἐξ	ἐξ	ἐκ
-406	ἀγρῶν	ἀγρῶν	ἄγρα (, fem gen pl) OR ἀγρέω (, pres part act masc nom sg (attic epic doric)) OR ἀγρός (, masc gen pl) OR 
+406	ἀγρῶν	ἀγρῶν	ἀγρός
 407	ὁμόρων	ὁμόρων	ὅμορος
 408	νέμων	νέμων	νέμω
 409	Δρύας	δρύας	δρῦς
 410	τοὔνομα	τοὔνομα	ὄνομα
 411	καὶ	καὶ	καί
 412	αὐτὸς	αὐτὸς	αὐτός
-413	ὁμοίοις	ὁμοίοις	ὅμοιος (, masc/neut dat pl (attic epic ionic), masc/fem/neut dat pl) OR ὁμοῖος (, masc/neut dat pl) OR 
+413	ὁμοίοις	ὁμοίοις	ὅμοιος
 414	ἐπιτυγχάνει	ἐπιτυγχάνει	ἐπιτυγχάνω
 415	καὶ	καὶ	καί
 416	εὑρήμασι	εὑρήμασι	εὕρημα
@@ -418,11 +418,11 @@
 418	θέαμασι	θέαμασι	??
 419	Νυμφῶν	νυμφῶν	νύμφη
 420	ἄντρον	ἄντρον	ἄντρον
-421	ἦν	ἦν	εἰμί (, imperf ind act 1st sg, imperf ind act 3rd pl (epic doric aeolic), imperf ind act 3rd sg) OR ἠμί (, imperf ind act 1st sg (attic)) OR 
-422	πέτρα	πέτρα	πέτρα—,πέτρα
+421	ἦν	ἦν	εἰμί 
+422	πέτρα	πέτρα	πέτρα
 423	μεγάλη	μεγάλη	μέγας
 424	τὰ	τὰ	ὁ
-425	ἔνδοθεν	ἔνδοθεν	ἔνδοθεν (, indeclform (adverb)) OR ἐνδίδωμι (, aor ind pass 3rd pl (epic)) OR 
+425	ἔνδοθεν	ἔνδοθεν	ἔνδοθεν
 426	κοίλη	κοίλη	κόιλος (, fem nom/voc sg (attic epic ionic)) OR κοι—/λη,κοῖλος (, fem nom/voc sg (attic epic ionic)) OR 
 427	τὰ	τὰ	ὁ
 428	ἔξωθεν	ἔξωθεν	ἔξωθεν
@@ -438,39 +438,39 @@
 438	ἀνυπόδητοι	ἀνυπόδητοι	ἀνυπόδητος
 439	χεῖρες	χεῖρες	χείρ
 440	εἰς	εἰς	εἰς
-441	ὤμους	ὤμους	ὠ—/μους,ὦμος
+441	ὤμους	ὤμους	ὦμος
 442	γυμναί	γυμναί	γυμνός
-443	κόμαι	κόμαι	κόμη (, fem nom/voc pl) OR κόμᾳ—,κόμη (, fem dat sg (doric aeolic)) OR 
+443	κόμαι	κόμαι	κόμη
 444	μέχρι	μέχρι	μέχρι
 445	τῶν	τῶν	ὁ
 446	αὐχένων	αὐχένων	αὐχήν
-447	λελυμέναι	λελυμέναι	λύω (, perf part mp fem nom/voc pl) OR λελυμένᾳ—,λύω (, perf part mp fem dat sg (doric aeolic)) OR 
+447	λελυμέναι	λελυμέναι	λύω
 448	ζῶμα	ζῶμα	ζῶμα
 449	περὶ	περὶ	περί
 450	τὴν	τὴν	ὁ
 451	ἰξύν	ἰξύν	ἰξύς
-452	μειδίαμα	μειδίαμα	μειδία—μα,μειδίαμα
+452	μειδίαμα	μειδίαμα	μειδίαμα
 453	περὶ	περὶ	περί
 454	τὴν	τὴν	ὁ
-455	ὀφρύν	ὀφρύν	ὀφρυ—/ν,ὀφρύς
+455	ὀφρύν	ὀφρύν	ὀφρύς
 456	τὸ	τὸ	ὁ
 457	πᾶν	πᾶν	πᾶς
 458	σχῆμα	σχῆμα	σχῆμα
-459	χορεία	χορεία	χορεία—,χορεία (, fem nom/voc/acc dual, fem nom/voc sg (attic doric aeolic)) OR χορεία—,χορεῖος (, fem nom/voc/acc dual, fem nom/voc sg (attic doric aeolic)) OR 
-460	ἦν	ἦν	εἰμί (, imperf ind act 1st sg, imperf ind act 3rd pl (epic doric aeolic), imperf ind act 3rd sg) OR ἠμί (, imperf ind act 1st sg (attic)) OR 
+459	χορεία	χορεία	χορεία 
+460	ἦν	ἦν	εἰμί 
 461	ὀρχουμένων	ὀρχουμένων	ὀρχέομαι (, pres part mp fem gen pl (attic epic doric), pres part mp masc/neut gen pl (attic epic doric)) OR ὀρχέω (, pres part mp fem gen pl (attic epic doric), pres part mp masc/neut gen pl (attic epic doric)) OR 
 462	Ἡ	ἡ	ὁ
-463	ὤα	ὤα	α—)/α—,ἀάω (, imperf ind act 3rd sg (doric aeolic)) OR ἄα—,ἀάω (, pres imperat act 2nd sg) OR 
+463	ὤα	ὤα	ἀάω
 464	τοῦ	τοῦ	ὁ
 465	ἄντρου	ἄντρου	ἄντρον
 466	τῆς	τῆς	ὁ
 467	μεγάλης	μεγάλης	μέγας
 468	πέτρας	πέτρας	πέτρα—ς,πέτρα
-469	ἦν	ἦν	εἰμί (, imperf ind act 1st sg, imperf ind act 3rd pl (epic doric aeolic), imperf ind act 3rd sg) OR ἠμί (, imperf ind act 1st sg (attic)) OR 
+469	ἦν	ἦν	εἰμί
 470	τὸ	τὸ	ὁ
 471	μεσαίτατον	μεσαίτατον	μέσος
 472	Ἐκ	ἐκ	ἐκ
-473	πηγῆς	πηγῆς	πηγάζω (, fut ind act 2nd sg (doric)) OR πηγή (, fem gen sg (attic epic ionic)) OR πηγός (, fem gen sg (attic epic ionic)) OR 
+473	πηγῆς	πηγῆς	πηγή
 474	ἀναβλύζον	ἀναβλύζον	ἀναβλύζω
 475	ὕδωρ	ὕδωρ	ὕδωρ
 476	ῥεῖθρον	ῥεῖθρον	ῥεῖθρον

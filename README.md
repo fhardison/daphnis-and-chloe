@@ -2,7 +2,7 @@
 
 STATUS: Ongoing lemmatization; diglot complete; reader's edition in progress.
 
-LEMMATIZATION STATUS: 1.1 to 1.3 lemmatized.
+LEMMATIZATION STATUS: 1.1 to 1.4 lemmatized.
 
 This repo is a lemmatization project for _Daphnis and Chloe_ by Longus as well as an English-Greek diglot. It also contains a reader's edition based on forms occuring 10 times or less in the Greek New Testament (data taken from James Tauber's [vocabulary-tools](https://github.com/jtauber/vocabulary-tools)). 
 
