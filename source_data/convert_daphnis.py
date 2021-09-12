@@ -14,7 +14,7 @@ dom = ET.parse(XMLFILE)
 
 parts = dom.getroot().findall(f".//div[@type='textpart']", NS)
 
-JUST_TEXT = True
+JUST_TEXT = False
 
 counter = 0
 
@@ -28,9 +28,9 @@ books = {}
 
 chapters = {}
 
+line_counter = 0
 
-
-with open("daphnis_and_chloe.txt", 'w', encoding="UTF-8") as f:
+with open("gr_daphnis_and_chloe_.txt", 'w', encoding="UTF-8") as f:
 
     for p in parts:
         t_type = p.get('subtype')
@@ -63,12 +63,14 @@ with open("daphnis_and_chloe.txt", 'w', encoding="UTF-8") as f:
             if t_type == 'chapter':
                 #print(f"## Κεφάλαιον {p.get('n')}" + "\n", file=f)
                 cur_chapter = p.get('n')
-                print('\n' + f"{cur_book}.{cur_chapter}", file=f, end='  ')
+                print('\n' + f"{cur_book}.{cur_chapter}@gr", file=f, end='  ')
             if t_type == 'section':
                 for para in p.iter('p'):
                 #    print(para.attrib)
                 #for para in p.findall('./p'):
+                    
                     if para.text:
+                        
                         print(para.text , file=f, end=' ')
         
 
@@ -95,9 +97,9 @@ def write_index(xs, fpath, last_token):
             print(key, xs)
             f.write(f"{key} {xs[0]} {xs[1]}" + "\n")
 
-write_index(books, "daphnis_books.txt", counter)
+#write_index(books, "daphnis_books.txt", counter)
 
-write_index(chapters, "daphnis_chapters.txt", counter)
+#write_index(chapters, "daphnis_chapters.txt", counter)
     
 
 print(len(parts))

@@ -531,12 +531,12 @@
 531	καταστῆσαι	καταστῆσαι	καθίστημι
 532	δεσμὸν	δεσμὸν	δεσμός
 533	ῥάβδου	ῥάβδου	ῥάβδος
-534	χλωρᾶς	χλωρᾶς	χλωρᾶ—ς,χλωράω (, pres ind act 2nd sg (doric)) OR χλωρᾶ—ς,χλωράζω (, fut ind act 2nd sg (doric)) OR χλωρεύς (, masc acc pl) OR χλωρός (, fem gen sg (attic doric aeolic)) OR	?? OR ?? OR ?? OR χλωρός - greenish-yellow (a-s---mn-)
+534	χλωρᾶς	χλωρᾶς	χλωρός
 535	λυγίσας	λυγίσας	λυγίσα—ς,λυγίζω
-536	ὅμοιον	ὅμοιον	ὅμοιος (, masc acc sg (attic ionic), neut nom/voc/acc sg (attic ionic)) OR ὁμοῖος (, masc acc sg, neut nom/voc/acc sg) OR	ὅμοιος - like, resembling (a-s---fn-) OR ὁμοῖος - like, resembling (a-s---fn-)
+536	ὅμοιον	ὅμοιον	ὅμοιος
 537	βρόχῳ	βρόχῳ	βρόχος
 538	τῇ	τῇ	ὁ
-539	πέτρᾳ	πέτρᾳ	πέτραι,πέτρα (, fem nom/voc pl) OR πέτρᾳ—,πέτρα (, fem dat sg (attic doric aeolic)) OR	?? OR ??
+539	πέτρᾳ	πέτρᾳ	πέτρα
 540	προσῆλθεν	προσῆλθεν	προσέρχομαι
 541	ὡς	ὡς	ὡς
 542	ἐκεῖ	ἐκεῖ	ἐκεῖ
