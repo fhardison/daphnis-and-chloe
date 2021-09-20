@@ -1,0 +1,6 @@
+τά:
+  default: ὁ
+δή:
+  default: δήἄνθη:
+  "1.praef@gr": ἄνθηἄνθη:
+  default: ἄνθη
