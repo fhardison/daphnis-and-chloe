@@ -289,3 +289,4 @@ TSWLatexianTemp*
 
 source_data/gnt_data/
 source_data/__pycache__/
+*.exe

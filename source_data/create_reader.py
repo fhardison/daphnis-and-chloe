@@ -1,25 +1,46 @@
-from morpheus_glosser import load_glosser
-
+import re
+import subprocess
+from collections import Counter
+from booklet2 import main
 from gnt_data import get_tokens, TokenType
 from greek_normalisation.utils import grave_to_acute
-from collections import Counter
-import re
+from morpheus_glosser import load_glosser
+from greek_glosser import Glosser
+
 
 gnt_counts = Counter()
 
-gnt_tokens = get_tokens(TokenType.form)
+#gnt_tokens = get_tokens(TokenType.form)
+gnt_tokens = get_tokens(TokenType.lemma)
 
 for x in gnt_tokens:
     gnt_counts[x] += 1
 
-GR = "daphnis_and_chloe.txt"
-
+# GR = "..\\daphnis_merged.txt"
+GR = "daphnis_and_chloe_tokens_2.txt"
 
 
 def clean(x):
     return grave_to_acute(re.sub('[·;“ʼ”,.)(!?]', '', x)).lower()
 
 
+def load_tokens(fpath):
+    out = []
+    buffer = []
+    with open(fpath, 'r', encoding="UTF-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            text, norm, lemma, parse = line.strip().split('\t', maxsplit=3)
+            if '@' in text:
+                out.append(buffer)
+                buffer = [(text.split('@')[0], '')]
+            else:
+                buffer.append((text, lemma))
+        out.append(buffer)
+    return out
+            
+    
 
 nums = [str(x) for x in range(0,10)]
 
@@ -29,14 +50,17 @@ def load_to_dict(fpath):
     last_address = ''
     with open(fpath, 'r', encoding="UTF-8") as f:
         for line in f:
-            if not line.strip():
+            #if not line.strip():
+            #    continue
+            if not "@gr" in line:
                 continue
             line_counter += 1
             try:
                 if not(line.strip()[0] in nums):
                     out[last_address] += '  ' + line.strip()
                 else:
-                    address, cons = line.strip().split(' ', maxsplit=1)
+                    adr, cons = line.strip().split(' ', maxsplit=1)
+                    address = adr.replace("@gr", '')
                     last_address = address
                     out[address] = cons
             except ValueError as ve:
@@ -48,29 +72,54 @@ def load_to_dict(fpath):
             except Exception as e:
                 print(line_counter, line)
                 raise e
+    print(line_counter)
     return out
     
     
-    
-greek_text = load_to_dict(GR)
+# greek_text = load_to_dict(GR)
+
+greek_text = load_tokens(GR)
 
 #eng_text = load_to_dict(EN)
 
 gr_out = []
 
 
-USE_SILE = False
+#GLOSSER= load_glosser()
+GLOSSER = Glosser()
 
-EN_CMARKER = "\ledleftnote{s}"
 
-glosser = load_glosser()
-
-excludes = ['δὲ', 'καὶ']
+excludes = ['δέ', 'καί', 'Δάφνις']
 
 MISSED_COUNTER = 0
 
+def format_section_tokens(text, counts, glosser, lim):
+    output = []
+    missed = 0
+    for form, lemma in text:
+        
+        if lemma in excludes:
+            output.append(form)
+        elif '.' in form:
+            output.append(form)
+        else:
+            if counts[lemma] < lim:
+                gloss = glosser.get(lemma)
+                
+                if not gloss == '??':
+                    output.append(form + "\\footnote{\\tiny{" + lemma + ": " +
+                                  gloss + "}}")
+                else:
+                    output.append(form + "*")
+                    missed += 1
+            else:
+                output.append(form)
+    return ' '.join(output).replace('&', '\\&'), missed
+
+
 def format_section(key, text, counts, glosser, lim):
-    output = [f"{key} "]    
+    output = [f"{key}"]
+    missed = 0
     for word in [x for x in text.split(' ') if x.strip()]:
         cleaned = clean(word)
         if cleaned in excludes:
@@ -78,44 +127,30 @@ def format_section(key, text, counts, glosser, lim):
         else:
             if counts[cleaned] < lim:
                 if cleaned in glosser:
-                    output.append(word + "\\footnote{\\tiny{" + glosser[cleaned] + "}}")
+                    output.append(word + "\\footnote{\\tiny{" +
+                                  glosser.get(cleaned, '??') + "}}")
                 else:
-                    #output.append(word + "\\footnote{\\tiny{" + "??}}")
                     output.append(word + "*")
-                    MISSED_COUNTER += 1
+                    missed += 1
             else:
                 output.append(word)
-    return ' '.join(output)
-    
+    return ' '.join(output).replace('&', '\\&'), missed
 
 
-def format_section_sile(key, text, counts, glosser, lim):
-    output = [f"{key} "]    
-    for word in text.split(' '):
-        cleaned = clean(word)
-        if cleaned in excludes:
-            output.append(word)
-        else:
-            if counts[cleaned] < lim:
-                if cleaned in glosser:
-                    output.append(word + "\\footnote{\\font[size=10pt]{" + glosser[cleaned] + "}}")
-                else:
-                    #output.append(word + "\\footnote{\\tiny{" + "??}}")
-                    output.append(word + "*")
-            else:
-                output.append(word)
-    return ' '.join(output)
-
-
-for key, text in greek_text.items():
-    if not key.startswith('1.'): 
+#for key, text in greek_text.items():
+for text in greek_text:
+    if not text:
         continue
-    if USE_SILE:
-        gr_out.append(format_section_sile(key, text, gnt_counts, glosser, 10))
-    else:
-        gr_out.append(format_section(key, text, gnt_counts, glosser, 10))
-    
-print("missed: " + MISSED_COUNTER)
+    if not text[0][0].startswith('2.'):
+        continue
+    text, missed = format_section_tokens(text, gnt_counts, GLOSSER, 10)
+    gr_out.append(text)
+    MISSED_COUNTER += missed
+
+
+print("missed: " + str(MISSED_COUNTER))
+
+
 HALF_LETTER = """\\usepackage{geometry}
 \\geometry{
   paperheight=8.5in,
@@ -123,16 +158,6 @@ HALF_LETTER = """\\usepackage{geometry}
   margin=0.5in,
   heightrounded,
 }"""
-
-SILE_HEADER = r"""\begin[papersize=5.5inx8.5in,class=book]{document}
-\nofolios
-\font[family=Gentium Plus,size=10pt]
-\footnote:separator{\em{Separator}\skip[height=5mm]}
-\footnote:options[interInsertionSkip=3mm]
-"""
-
-SILE_FOOTER = r"""\end{document}
-"""
 
 
 HEADER = "\\documentclass[12pt]{book}\n" + HALF_LETTER + """
@@ -154,21 +179,18 @@ HEADER = "\\documentclass[12pt]{book}\n" + HALF_LETTER + """
 
 \\begin{document}"""
 
-FOOTER =  "\\end{document}"
-
+FOOTER = "\\end{document}"
 
 
 with open("reader.tex", 'w', encoding="UTF-8") as f:
-    if USE_SILE:
-        f.write(SILE_HEADER)
-        f.write('\n\n'.join(gr_out))
-    
-        f.write(SILE_FOOTER)
-    else:
-        f.write(HEADER)
-        f.write('\n\n'.join(gr_out))
-    
-        f.write(FOOTER)
+    f.write(HEADER)
+    f.write('\n\n'.join(gr_out))
+    f.write(FOOTER)
+
+subprocess.run(['tectonic.exe', 'reader.tex'])
+
+pdf_name = "reader.pdf"
+
+main(pdf_name)
 
 print("DONE")
-

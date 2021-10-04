@@ -25,11 +25,15 @@ def print_interlinear(token_lists, fout):
             file=fout
         )
 
-def show_lemma_problem(line, norm, lemmas, refs, glosser=None):
+def show_lemma_problem(line, norm, lemmas, refs, glosser=None, lemma_overrides=None):
     # display
-    print(line.replace(f' {norm} ', f' *{norm}* '))
+    print(line.replace(f' {norm} ', f' ***{norm}*** '))
     print()
     print(norm)
+    if norm in lemma_overrides:
+        print('Already lemmatized as: ')
+        for k, val in lemma_overrides.items():
+            print(f"{k} - {v}")
     for i, lemma in enumerate(lemmas):
         if glosser:
             gloss = glosser.get(lemma)
@@ -64,21 +68,21 @@ def show_lemma_problem(line, norm, lemmas, refs, glosser=None):
                 print("Not a valid choice")
     
 
-def display_ambigeous_lemmas(line, problems, glosser=None):
+def display_ambigeous_lemmas(line, problems,
+                             glosser=None, lemma_overrides=None):
     solutions = []
-    
+
     norm_lemmas = list(problems.keys())
     if len(norm_lemmas) < 1:
         print("No problems found")
         return []
     keep_looping = True
     counter = 0
-    #print(norm_lemmas)
-    while keep_looping:  
+    while keep_looping:
         norm, lemmas = norm_lemmas[counter]
-  
-        status, res = show_lemma_problem(line, norm, lemmas.split("|"), problems[(norm, lemmas)], glosser)
-        
+        status, res = show_lemma_problem(line, norm, lemmas.split("|"),
+                                         problems[(norm, lemmas)],
+                                         glosser, lemma_overrides)
         if status == "B":
             counter -= 1
         elif status == 'Q':
